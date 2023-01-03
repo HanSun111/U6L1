@@ -49,10 +49,14 @@ public class ArrayManipulator {
     /** Returns true if both the nums and words arrays have the same number of
      *  elements, returns false otherwise.
      *
-     *  @return  returns true if the  two arrays are equal in length; false if not
+     *  @return  returns true if the two arrays are equal in length; false if not
      */
-    public boolean sameLengths()
-    { /* implement this method! */ }
+    public boolean sameLengths(){
+        if(nums.length == words.length){
+            return true;
+        }
+        return false;
+    }
 
     /** Updates the element of the words array at index idx to the new value
      *  provided and returns true to indicate a successful update; if, however,
@@ -61,8 +65,15 @@ public class ArrayManipulator {
      *
      *  @return  true if the update was successful, false otherwise.
      */
-    public boolean updateWordsListAt(int idx, String newValue)
-    { /* implement this method! */ }
+    public boolean updateWordsListAt(int idx, String newValue){
+        if(idx > words.length){
+            return false;
+        }
+        else{
+            words[idx] = newValue;
+            return true;
+        }
+    }
 
 
     /** Returns the number of characters that are contained in the last element of
@@ -71,8 +82,9 @@ public class ArrayManipulator {
      *  @return  how many characters are in the last element of words; 0 if the
      *           last element is null
      */
-    public int howLongLastWord()
-    { /* implement this method! */ }
+    public int howLongLastWord(){
+        return words[words.length - 1].length();
+    }
 
 
     // these methods are provided for testing
