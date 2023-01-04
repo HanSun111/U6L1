@@ -25,11 +25,13 @@ public class ArrayManipulator {
      */
     public int getNumsMiddleIndex(){
         int middle = nums.length;
-        if(middle % 2 == 0){
+
+        if(middle % 2 == 1) {
+            middle = middle - 1;
             middle = nums.length / 2;
         }
-        if(middle % 2 == 1){
-            middle = nums.length / 2 + 1;
+        else{
+            middle = (nums.length - 1) / 2;
         }
         return middle;
     }
@@ -42,7 +44,7 @@ public class ArrayManipulator {
      *  @return  the average of the first, last, and middle elements
      */
     public double getNumsAverage(){
-        return (double)(nums[1] + nums[nums.length - 1] + nums[getNumsMiddleIndex()]) / 3;
+        return ((double)nums[0] + (double)nums[nums.length - 1] + (double)nums[getNumsMiddleIndex()]) / 3;
     }
 
 
@@ -66,7 +68,7 @@ public class ArrayManipulator {
      *  @return  true if the update was successful, false otherwise.
      */
     public boolean updateWordsListAt(int idx, String newValue){
-        if(idx > words.length){
+        if(idx >= words.length){
             return false;
         }
         else{
@@ -83,6 +85,9 @@ public class ArrayManipulator {
      *           last element is null
      */
     public int howLongLastWord(){
+        if (words[words.length - 1] == null) {
+            return 0;
+        }
         return words[words.length - 1].length();
     }
 
